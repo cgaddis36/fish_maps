@@ -7,8 +7,7 @@ RSpec.describe Post, type: :model do
   end
 
   describe "relationships" do
-    it { should have_many(:fish_posts)}
-    it { should have_many(:fish).through(:fish_posts)}
-    it { should belong_to(:user)}
+    it { should have_many(:fish) }
+    it { should belong_to(:user) }
   end
 end

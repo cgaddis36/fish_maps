@@ -4,6 +4,5 @@ class Post < ApplicationRecord
 
   belongs_to :user
 
-  has_many :fish_posts
-  has_many :fish, through: :fish_posts
+  has_many :fish
 end
