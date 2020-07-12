@@ -1,6 +1,6 @@
 class Fish < ApplicationRecord
-  validates_presence_of :species
   validates_presence_of :quantity
+  validates_presence_of :species
 
   belongs_to :post
 

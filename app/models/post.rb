@@ -1,6 +1,8 @@
 class Post < ApplicationRecord
   validates_presence_of :state
-  validates_presence_of :region
+
+  enum privacy: %i[open closed]
+  enum fly_or_conventional: %i[fly conventional]
 
   belongs_to :user
 
