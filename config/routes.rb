@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   get '/auth/google_oauth2', as: :google_oauth2
   get '/auth/google_oauth2/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
+
+  get '/catch', to: 'catch#new'
+  post '/catch', to: 'catch#create'
 end

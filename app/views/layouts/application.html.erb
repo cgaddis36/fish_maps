@@ -16,6 +16,8 @@
         <li class="center">FishMaps</li>
         <% if current_user %>
           <li class="right"><%= link_to "Logout", '/logout' %></li>
+          <li class="right"><%= link_to "Profile", '/profile' %></li>
+          <li class="right"><%= link_to 'New Catch', '/catch' %></li>
           <li class="right"><%= link_to 'Home', '/' %></li>
         <% end %>
       </ul>

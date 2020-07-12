@@ -7,7 +7,6 @@ class CreatePosts < ActiveRecord::Migration[6.0]
       t.string :state
       t.string :body_of_water
       t.string :region
-      t.string :photo
       t.integer :privacy, default: 0
       t.integer :fly_or_conventional
       t.references :user, null: false, foreign_key: true

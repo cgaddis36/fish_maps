@@ -8,8 +8,6 @@ RSpec.describe "As a visitor" do
 
     expect(page).to have_link("Login with Google")
 
-    within "#about_me" do
-      expect(page).to have_content("Report Your Catch for Fishing Conservation Efforts")
-    end
+    expect(page).to have_content("Report Your Catch for Local Fishing Conservation Efforts")
   end
 end

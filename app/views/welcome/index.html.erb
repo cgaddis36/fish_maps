@@ -12,7 +12,7 @@
         <%= post.city %>
         <%= post.state %>
         <%= post.body_of_water %>
-        <%= image_tag(post.photo, style: "width: 500px; height: auto;") %>
+        <%= image_tag(post.fish.find_photo, style: "width: 500px; height: auto;") %>
         <% if post.fly_or_conventional == 'fly' %>
           Fly
         <% elsif post.fly_or_conventional == 'conventional' %>
