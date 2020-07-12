@@ -1,0 +1,26 @@
+<div class="container-fluid text-center" >
+  <% if !current_user %>
+    <section id='oauth'>
+      <%= link_to "Login with Google", google_oauth2_path, :class => "button btn btn-primary" %>
+    </section>
+  <% else %>
+    <% @posts.each do |post| %>
+      <% if post.privacy == "Public" %>
+        <%= post.title %>
+        <%= post.description %>
+        <%= post.region %>
+        <%= post.city %>
+        <%= post.state %>
+        <%= post.body_of_water %>
+        <% if !post.fish.empty? %>
+          <%= image_tag(post.fish.find_photo, style: "width: 500px; height: auto;") %>
+        <% end %>
+        <% if post.fly_or_conventional == 'fly' %>
+          Fly
+        <% elsif post.fly_or_conventional == 'conventional' %>
+          Conventional
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

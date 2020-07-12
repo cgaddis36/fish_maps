@@ -1,7 +1,5 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+@user = User.create!(name: "Chase")
+@post1 = @user.posts.create!(title: "Rainbows on the 4th!", description: "15 in. Rainbow on a mysis Shrimp", city: "Silverthorne", state: "CO", body_of_water: "Blue River", region: 'Central Colorado', fly_or_conventional: "Fly", privacy: "Public")
+@rainbow = @post1.fish.create!(species: 'Rainbow Trout', harvested: false, length: 15, quantity: 1, photo: 'rainbow_blue_river.jpg')
+@post2 = @user.posts.create!(title: "Dream Stream Cuttbow", description: "Cuttbow Wd-40 action", city: "Fairplay", state: "CO", body_of_water: "Dream Stream", region: 'South Park', fly_or_conventional: "Fly", privacy: "Private")
+@cuttbow = @post2.fish.create!(species: 'Hybrid Trout', harvested: false, length: 18, quantity: 1, photo: 'cuttbow.jpg')
