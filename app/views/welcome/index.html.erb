@@ -5,14 +5,16 @@
     </section>
   <% else %>
     <% @posts.each do |post| %>
-      <% if post.privacy == 0 %>
+      <% if post.privacy == "Public" %>
         <%= post.title %>
         <%= post.description %>
         <%= post.region %>
         <%= post.city %>
         <%= post.state %>
         <%= post.body_of_water %>
-        <%= image_tag(post.fish.find_photo, style: "width: 500px; height: auto;") %>
+        <% if !post.fish.empty? %>
+          <%= image_tag(post.fish.find_photo, style: "width: 500px; height: auto;") %>
+        <% end %>
         <% if post.fly_or_conventional == 'fly' %>
           Fly
         <% elsif post.fly_or_conventional == 'conventional' %>

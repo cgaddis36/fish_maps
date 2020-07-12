@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/auth/google_oauth2/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
 
-  get '/catch', to: 'catch#new'
-  post '/catch', to: 'catch#create'
+  get '/post', to: 'post#new'
+  post '/post', to: 'post#create'
+  get '/post/:post_id', to: 'post#show'
 end

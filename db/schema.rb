@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 2020_07_12_040436) do
     t.string "state"
     t.string "body_of_water"
     t.string "region"
-    t.integer "privacy", default: 0
-    t.integer "fly_or_conventional"
+    t.string "privacy"
+    t.string "fly_or_conventional"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
