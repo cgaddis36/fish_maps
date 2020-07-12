@@ -1,8 +1,12 @@
-<h1>FishMaps</h1>
+<div class="container-fluid text-center" >
 
-<section id='oauth'>
-  <%= button_to "Login with Google", google_oauth2_path %>
-</section>
+  <h1>FishMaps</h1>
 
-<h3 id='about_me'>Navigating Fishing Conservation Efforts
-</h3>
+  <section id='oauth'>
+    <%= link_to "Login with Google", google_oauth2_path, :class => "button btn btn-primary" %>
+  </section>
+
+  <h3 id='about_me'>
+    Navigating Local Fishing Conservation Efforts
+  </h3>
+</div>
