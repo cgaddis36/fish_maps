@@ -13,6 +13,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'pry'
 gem 'figaro'
 gem 'bcrypt'
+gem 'omniauth-google-oauth2'
+gem 'omniauth'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
