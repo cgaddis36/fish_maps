@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'As a logged in user' do
   before(:each) do
-    @user = User.create!(name: "Chase")
+    @user = User.create!(name: "Chase", password: 'WEDDDD')
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
   end
   it 'I can create a new post' do
