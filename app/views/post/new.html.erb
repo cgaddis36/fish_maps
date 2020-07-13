@@ -1,22 +1,22 @@
 <div class="container-fluid text-center" >
   <h1>Create Post</h1>
-  <%= form_with(model: @post, url: '/post', method: :post) do |f| %>
+  <%= form_with(model: @post, url: '/post', method: :post, local: true) do |f| %>
     <%= f.label :title %><br/>
-    <%= f.text_field :title, class: "block col-4 field" %><br/><br/>
+    <%= f.text_field :title, class: "block col-4 field" %><br/>
     <%= f.label :description %><br/>
-    <%= f.text_field :description, class: "block col-4 field" %><br/><br/>
-    <%= f.label :body_of_water %><br/>
-    <%= f.text_field :body_of_water, class: "block col-4 field" %><br/><br/>
-    <%= f.label :city %></br>
-    <%= f.text_field :city, class: "block col-4 field" %><br/></br>
+    <%= f.text_field :description, class: "block col-4 field" %><br/>
+    <%= f.label :fly_or_conventional %>
+    <%= f.select :fly_or_conventional, ['Fly', 'Conventional']%><br/>
     <%= f.label :state %>
     <%= f.select :state, options_for_select(us_states, 'CO') %><br/>
+    <%= f.label :city %></br>
+    <%= f.text_field :city, class: "block col-4 field" %></br>
     <%= f.label :region %>
-    <%= f.select :region, ['Front Range', 'South Park', 'Central Colorado', 'Southwest Colorado', 'South Central Colorado', 'Grand Mesa', 'North Park', 'Northwest Colorado', 'Other', 'Not Taken in Colorado']%><br/><br/>
+    <%= f.select :region, ['Front Range', 'South Park', 'Central Colorado', 'Southwest Colorado', 'South Central Colorado', 'Grand Mesa', 'North Park', 'Northwest Colorado', 'Other', 'Not Taken in Colorado']%><br/>
+    <%= f.label :body_of_water %><br/>
+    <%= f.text_field :body_of_water, class: "block col-4 field" %><br/>
     <%= f.label :privacy %>
-    <%= f.select :privacy, ['Public', 'Private']%><br/><br/>
-    <%= f.label :fly_or_conventional %>
-    <%= f.select :fly_or_conventional, ['Fly', 'Conventional']%><br/><br/>
+    <%= f.select :privacy, ['Public', 'Private']%><br/>
     <%= f.submit 'Record New Catch' %>
   <% end %></br></br>
 </div>
