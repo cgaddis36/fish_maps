@@ -4,7 +4,7 @@ class PostController < ApplicationController
   end
 
   def create
-    post = current_user.posts.create!(post_params)
+    post = current_user.posts.create(post_params)
     if post.save
       flash[:success] = "Successfully created post"
       redirect_to "/post/#{post.id}"

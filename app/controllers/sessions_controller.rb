@@ -1,3 +1,4 @@
+require 'securerandom'
 class SessionsController < ApplicationController
   def create
     user = User.update_or_create(request.env["omniauth.auth"])
@@ -7,6 +8,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete(:user_id)
+    flash[:notice] = "Successfully Logged Out"
     redirect_to "/"
   end
 end

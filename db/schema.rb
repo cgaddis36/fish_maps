@@ -23,8 +23,6 @@ ActiveRecord::Schema.define(version: 2020_07_12_040436) do
     t.boolean "harvested"
     t.string "photo"
     t.bigint "post_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.index ["post_id"], name: "index_fish_on_post_id"
   end
 
@@ -38,8 +36,6 @@ ActiveRecord::Schema.define(version: 2020_07_12_040436) do
     t.string "privacy"
     t.string "fly_or_conventional"
     t.bigint "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -53,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_07_12_040436) do
     t.string "profile_pic"
     t.string "google_token"
     t.string "uid"
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
