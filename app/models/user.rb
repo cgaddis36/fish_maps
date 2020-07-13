@@ -2,8 +2,6 @@ class User < ApplicationRecord
   validates_presence_of :name
 
   has_many :posts
-  has_secure_password
-
 
   def self.update_or_create(auth_info)
     user = User.find_by(uid: auth_info[:uid]) || User.new
