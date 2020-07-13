@@ -1,0 +1,22 @@
+<div class="container-fluid text-center" >
+  <h1>Create Profile</h1>
+  <%= form_with(model: @user, url: '/user', method: :post, local: true) do |f| %>
+    <%= f.label :name %><br/>
+    <%= f.text_field :name, class: "block col-4 field" %><br/>
+    <%= f.label :email %><br/>
+    <%= f.text_field :email, class: "block col-4 field" %><br/>
+    <%= f.label :username %><br/>
+    <%= f.text_field :username, class: "block col-4 field" %><br/>
+    <%= f.label :city %></br>
+    <%= f.text_field :city, class: "block col-4 field" %><br/><br/>
+    <%= f.label :state %>
+    <%= f.select :state, options_for_select(us_states, 'CO') %><br/>
+    <%= f.label :bio %></br>
+    <%= f.text_field :bio, class: "block col-4 field" %><br/>
+    <%= f.label :password %></br>
+    <%= f.password_field :password, class: "block col-4 field" %><br/>
+    <%= f.label :password_confirmation %></br>
+    <%= f.password_field :password_confirmation, class: "block col-4 field" %><br/><br/>
+    <%= f.submit 'Create Profile' %>
+  <% end %></br></br>
+</div>
