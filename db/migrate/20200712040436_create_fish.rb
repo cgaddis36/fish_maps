@@ -7,7 +7,7 @@ class CreateFish < ActiveRecord::Migration[6.0]
       t.integer :quantity
       t.boolean :harvested
       t.string :photo
-      t.references :post, null: false, foreign_key: true
+      t.references :post, foreign_key: true
 
       t.timestamps
     end
