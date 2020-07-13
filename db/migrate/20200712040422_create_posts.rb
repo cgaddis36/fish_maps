@@ -11,7 +11,6 @@ class CreatePosts < ActiveRecord::Migration[6.0]
       t.string :fly_or_conventional
       t.references :user, foreign_key: true
 
-      t.timestamps
     end
   end
 end
