@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 2020_07_12_040436) do
     t.boolean "harvested"
     t.string "photo"
     t.bigint "post_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_fish_on_post_id"
   end
 
@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(version: 2020_07_12_040436) do
     t.string "privacy"
     t.string "fly_or_conventional"
     t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(version: 2020_07_12_040436) do
     t.string "profile_pic"
     t.string "google_token"
     t.string "uid"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "fish", "posts"
