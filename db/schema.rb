@@ -42,10 +42,8 @@ ActiveRecord::Schema.define(version: 2020_07_12_040436) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "username"
     t.string "city"
     t.string "state"
-    t.string "bio"
     t.string "profile_pic"
     t.string "google_token"
     t.string "uid"
