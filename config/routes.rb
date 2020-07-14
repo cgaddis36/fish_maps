@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
 
   get '/logout', to: 'sessions#destroy'
-
+  get '/login', to: 'welcome#show'
+  patch '/login', to: 'sessions#new'
+  
   get '/registration', to: 'user#new'
 
   post '/user', to: 'user#create'

@@ -4,7 +4,7 @@ RSpec.describe 'As a visitor I can register' do
   it 'as a new user and logout successfully' do
     visit '/'
 
-    within '#default-login' do
+    within '#registration' do
       click_on("Create Profile")
     end
 
@@ -38,7 +38,7 @@ RSpec.describe 'As a visitor I can register' do
   it "registration sad path" do
     visit '/'
 
-    within '#default-login' do
+    within '#registration' do
       click_on("Create Profile")
     end
 
