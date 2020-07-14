@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       login(user)
     else
       flash[:error] = "Incorrect email/password"
-      render :new
+      redirect_to '/login'
     end
   end
 
