@@ -13,20 +13,24 @@
   <% else %>
     <% @posts.each do |post| %>
       <% if post.privacy == "Public" %>
-        <%= post.title %>
-        <%= post.description %>
-        <%= post.region %>
-        <%= post.city %>
-        <%= post.state %>
-        <%= post.body_of_water %>
+      <div class="card-columns">
         <% if !post.fish.empty? %>
-          <%= image_tag(post.fish.find_photo, style: "width: 500px; height: auto;") %>
+          <%= image_tag(post.fish.find_photo, alt: "Avatar", style: "width: 500px; height: auto;") %>
         <% end %>
-        <% if post.fly_or_conventional == 'fly' %>
-          Fly
-        <% elsif post.fly_or_conventional == 'conventional' %>
-          Conventional
-        <% end %>
+        <div class="container">
+          <h4><b><%= post.title %></b></h4>
+          <p><%= post.description %></br>
+          <%= post.region %>
+          <%= post.city %>
+          <%= post.state %></br>
+          <%= post.body_of_water %></br>
+          <% if post.fly_or_conventional == 'Fly' %>
+              Fly</br></br>
+          <% elsif post.fly_or_conventional == 'Conventional' %>
+              Conventional</br></br>
+          <% end %></p>
+          </div>
+        </div>
       <% end %>
     <% end %>
   <% end %>
