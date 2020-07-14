@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  validates_presence_of :name
+  validates_presence_of :email, :name
 
   has_many :posts
   has_secure_password
