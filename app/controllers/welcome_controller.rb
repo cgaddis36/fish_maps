@@ -1,9 +1,8 @@
 class WelcomeController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.order_posts
   end
 
   def show
-
   end
 end

@@ -4,6 +4,9 @@ class User < ApplicationRecord
   has_many :posts
   has_secure_password
 
+  def new_posts
+    posts.order(id: :desc)
+  end
 
   def self.update_or_create(auth_info)
     user = User.find_by(uid: auth_info[:uid]) || User.new

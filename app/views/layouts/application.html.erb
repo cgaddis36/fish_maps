@@ -11,7 +11,6 @@
   </head>
 
   <body>
-    <div class="container-fluid text-center" >
       <ul class = "topnav">
         <li class="center">FishMaps</li>
         <% if current_user %>
@@ -28,10 +27,13 @@
    </div>
  <% end %>
 
-      <div class="navbar fixed-bottom">
-            Report Your Catch for Local Fishing Conservation Efforts
       </div>
-    </div>
     <%= yield %>
+    <footer>
+      <div class="row">
+
+        <%= image_tag('fishmaps_logo.png', style: 'width: 150px; height: auto;')%>
+        <h6>Report Your Catch for Local Fishing Conservation Efforts</h6>
+      </footer>
   </body>
 </html>

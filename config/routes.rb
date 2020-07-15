@@ -9,12 +9,17 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   get '/login', to: 'welcome#show'
   patch '/login', to: 'sessions#new'
-  
+
+  get '/password', to: 'user/password#edit'
+  patch '/password', to: 'user/password#update'
+
   get '/registration', to: 'user#new'
 
   post '/user', to: 'user#create'
 
   get '/profile', to: 'user#show'
+  patch '/profile', to: 'user#update'
+  get '/profile/edit', to: 'user#edit'
 
   get '/post', to: 'post#new'
   post '/post', to: 'post#create'

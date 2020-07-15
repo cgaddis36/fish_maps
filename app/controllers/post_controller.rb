@@ -21,6 +21,6 @@ class PostController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :description, :body_of_water, :city, :state, :region, :privacy, :fly_or_conventional)
+    params.require(:post).permit(:title, :body_of_water, :city, :state, :region, :privacy, :fly_or_conventional)
   end
 end

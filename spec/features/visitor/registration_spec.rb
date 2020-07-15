@@ -12,7 +12,6 @@ RSpec.describe 'As a visitor I can register' do
 
     fill_in 'Name', with: 'Harry Potter'
     fill_in 'Email', with: 'gryffindor_galore@example.com'
-    fill_in 'Username', with: 'harry36'
     fill_in 'City', with: 'London'
     select 'Texas', from: 'State'
     fill_in 'Password', with: 'hermoine123'
@@ -46,7 +45,6 @@ RSpec.describe 'As a visitor I can register' do
 
     fill_in 'Name', with: 'Harry Potter'
     fill_in 'Email', with: ''
-    fill_in 'Username', with: 'harry36'
     fill_in 'City', with: 'London'
     select 'Texas', from: 'State'
     fill_in 'Password', with: 'hermoine123'
@@ -58,7 +56,6 @@ RSpec.describe 'As a visitor I can register' do
 
     fill_in 'Name', with: 'Harry Potter'
     fill_in 'Email', with: 'gryffindor@example.com'
-    fill_in 'Username', with: 'harry36'
     fill_in 'City', with: 'London'
     select 'Texas', from: 'State'
     fill_in 'Password', with: 'hermoine123'

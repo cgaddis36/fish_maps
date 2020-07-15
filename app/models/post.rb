@@ -4,4 +4,8 @@ class Post < ApplicationRecord
   belongs_to :user
 
   has_many :fish
+
+  def self.order_posts
+    order(id: :desc)
+  end
 end
