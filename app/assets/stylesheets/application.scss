@@ -4,6 +4,13 @@ body {
   background: url(asset_path("navy_pastel_wallpaper.png"));
 }
 
+footer {
+  position: bottom;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
 a:link {
   background-color: skyblue;
    color: white;
