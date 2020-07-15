@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 2020_07_12_040436) do
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
-    t.string "description"
     t.string "city"
     t.string "state"
     t.string "body_of_water"

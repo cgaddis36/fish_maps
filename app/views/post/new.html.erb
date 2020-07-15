@@ -3,8 +3,6 @@
   <%= form_with(model: @post, url: '/post', method: :post, local: true) do |f| %>
     <%= f.label :title %><br/>
     <%= f.text_field :title, class: "block col-4 field" %><br/>
-    <%= f.label :description %><br/>
-    <%= f.text_field :description, class: "block col-4 field" %><br/>
     <%= f.label :fly_or_conventional %>
     <%= f.select :fly_or_conventional, ['Fly', 'Conventional']%><br/>
     <%= f.label :state %>

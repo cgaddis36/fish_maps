@@ -9,7 +9,6 @@ RSpec.describe 'As a logged in user' do
     visit '/post'
 
     fill_in 'Title', with: '14 inch Brookie'
-    fill_in 'Description', with: 'High Alpine Lake Fun'
     fill_in 'Body of water', with: 'Idaho Springs Reservoir'
     fill_in 'City', with: 'Idaho Springs'
     select 'Front Range', from: 'Region'
@@ -25,6 +24,5 @@ RSpec.describe 'As a logged in user' do
     expect(current_path).to eq("/post/#{post.id}")
 
     expect(page).to have_content(post.title)
-    expect(page).to have_content(post.description)
   end
 end
