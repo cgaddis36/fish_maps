@@ -2,6 +2,9 @@
   <%= "Location: #{current_user.city}, #{current_user.state}" %>
   </br>
 
+  <%= link_to "Update Profile", '/profile/edit' %></br></br>
+  <%= link_to "Forgot Password?", '/password' %>
+
   <% @posts.each do |post| %>
   <section id='post'>
     <% if !post.fish.empty? %>
