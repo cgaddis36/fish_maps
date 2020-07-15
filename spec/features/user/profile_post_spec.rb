@@ -18,6 +18,14 @@ RSpec.describe 'As a logged in user' do
                         fly_or_conventional: "Fly"
                         )
 
+    @hermoine = User.create(
+                          name: Faker::Movies::HarryPotter.character,
+                          email: Faker::Movies::HarryPotter.house + '@example.com',
+                          password: Faker::Movies::HarryPotter.spell,
+                          city: Faker::Movies::HarryPotter.location,
+                          state: Faker::Movies::HarryPotter.location
+                        )
+
     @post1 = @harry.posts.create(
                         title: Faker::Movies::StarWars.vehicle,
                         body_of_water: Faker::Movies::StarWars.specie,
@@ -42,12 +50,21 @@ RSpec.describe 'As a logged in user' do
                         privacy: 'Public',
                         fly_or_conventional: "Fly"
                         )
+
+     @post3 = @hermoine.posts.create(
+                        title: Faker::Movies::StarWars.vehicle,
+                        body_of_water: Faker::Movies::StarWars.specie,
+                        region: Faker::Movies::StarWars.planet,
+                        state: Faker::TvShows::GameOfThrones.city,
+                        privacy: 'Public',
+                        fly_or_conventional: "Fly"
+                        )
+
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@harry)
   end
   it 'When I visit my profile page I see a list of all of the posts I have made' do
     visit '/profile'
 
     expect(page).to have_css('#post', count: 3)
-    save_and_open_page
   end
 end
