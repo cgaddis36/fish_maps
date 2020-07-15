@@ -16,6 +16,7 @@ class UserController < ApplicationController
   end
 
   def show
+    @posts = current_user.new_posts
   end
 
   private
