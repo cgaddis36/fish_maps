@@ -67,4 +67,17 @@ RSpec.describe 'As a logged in user' do
 
     expect(page).to have_css('#post', count: 3)
   end
+  it "When I visit the homePage i see all of the posts in descending chronological order with newest posts coming first" do
+    visit '/'
+
+    expect(page).to have_css('.card-columns', count: 4)
+
+    within first('.card-columns') do
+      expect(page).to have_content(@post3.title)
+    end
+
+    within all('.card-columns').last do
+      expect(page).to have_content(@post.title)
+    end
+  end
 end
