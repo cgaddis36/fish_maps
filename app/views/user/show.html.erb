@@ -1,7 +1,8 @@
   <%= current_user.name %>
   <%= "Location: #{current_user.city}, #{current_user.state}" %>
   </br>
-  <% current_user.posts.each do |post| %>
+
+  <% current_user.new_posts.each do |post| %>
   <section id='post'>
     <% if !post.fish.empty? %>
       <%= image_tag(post.fish.find_photo, alt: "Avatar", style: "width: 500px; height: auto;") %>
