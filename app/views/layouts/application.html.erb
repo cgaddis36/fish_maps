@@ -27,13 +27,11 @@
    </div>
  <% end %>
 
-      </div>
     <%= yield %>
     <footer>
-      <div class="row">
+      <%= image_tag('fishmaps_logo.png', style: 'width: 150px; height: auto;')%>
 
-        <%= image_tag('fishmaps_logo.png', style: 'width: 150px; height: auto;')%>
-        <h6>Report Your Catch for Local Fishing Conservation Efforts</h6>
-      </footer>
+      <h6>Report Your Catch for Local Fishing Conservation Efforts</h6>
+    </footer>
   </body>
 </html>
