@@ -12,7 +12,7 @@ RSpec.describe 'As a logged in user' do
     @post = @harry.posts.create(
                         title: Faker::Movies::StarWars.vehicle,
                         body_of_water: Faker::Movies::StarWars.specie,
-                        region: Faker::Movies::StarWars.planet,
+                        region: 'South Park',
                         state: Faker::TvShows::GameOfThrones.city,
                         privacy: 'Public',
                         fly_or_conventional: "Fly"
@@ -29,7 +29,7 @@ RSpec.describe 'As a logged in user' do
     @post1 = @harry.posts.create(
                         title: Faker::Movies::StarWars.vehicle,
                         body_of_water: Faker::Movies::StarWars.specie,
-                        region: Faker::Movies::StarWars.planet,
+                        region: 'South Park',
                         state: Faker::TvShows::GameOfThrones.city,
                         privacy: 'Public',
                         fly_or_conventional: "Fly"
@@ -45,7 +45,7 @@ RSpec.describe 'As a logged in user' do
     @post2 = @harry.posts.create(
                         title: Faker::Movies::StarWars.vehicle,
                         body_of_water: Faker::Movies::StarWars.specie,
-                        region: Faker::Movies::StarWars.planet,
+                        region: 'Front Range',
                         state: Faker::TvShows::GameOfThrones.city,
                         privacy: 'Public',
                         fly_or_conventional: "Fly"
@@ -54,7 +54,7 @@ RSpec.describe 'As a logged in user' do
      @post3 = @hermoine.posts.create(
                         title: Faker::Movies::StarWars.vehicle,
                         body_of_water: Faker::Movies::StarWars.specie,
-                        region: Faker::Movies::StarWars.planet,
+                        region: 'South Park',
                         state: Faker::TvShows::GameOfThrones.city,
                         privacy: 'Public',
                         fly_or_conventional: "Fly"
@@ -79,5 +79,26 @@ RSpec.describe 'As a logged in user' do
     within all('.card-columns').last do
       expect(page).to have_content(@post.title)
     end
+  end
+  it 'can filter posts based on region' do
+    visit '/'
+
+    select "Front Range", from: 'Region'
+
+    click_on("Filter By Region")
+
+    expect(page).to have_content(@post2.title)
+    expect(page).to_not have_content(@post.title)
+    expect(page).to_not have_content(@post1.title)
+    expect(page).to_not have_content(@post3.title)
+
+    select "South Park", from: 'Region'
+    click_on("Filter By Region")
+
+
+    expect(page).to_not have_content(@post2.title)
+    expect(page).to have_content(@post.title)
+    expect(page).to have_content(@post1.title)
+    expect(page).to have_content(@post3.title)
   end
 end

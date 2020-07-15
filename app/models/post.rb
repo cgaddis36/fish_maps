@@ -8,4 +8,8 @@ class Post < ApplicationRecord
   def self.order_posts
     order(id: :desc)
   end
+
+  def self.order_by_region(region)
+    where(region: region)
+  end
 end

@@ -11,6 +11,15 @@
       </section>
     </section>
   <% else %>
+
+    <%= form_tag "/", method: :get do %>
+
+    <%= label_tag :region %>
+    <%= select_tag(:region, options_for_select(['Front Range', 'South Park', 'Central Colorado', 'Southwest Colorado', 'South Central Colorado', 'Grand Mesa', 'North Park', 'Northwest Colorado'])) %>
+
+    <%= submit_tag "Filter By Region" %>
+    <% end %>
+
     <% @posts.each do |post| %>
       <% if post.privacy == "Public" %>
       <div class="card-columns">

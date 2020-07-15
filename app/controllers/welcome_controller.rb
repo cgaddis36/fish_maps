@@ -1,6 +1,11 @@
 class WelcomeController < ApplicationController
   def index
-    @posts = Post.order_posts
+    if params[:region]
+      region = params[:region]
+      @posts = Post.order_by_region(region)
+    else
+      @posts = Post.order_posts
+    end
   end
 
   def show
