@@ -9,6 +9,7 @@ class CreateFish < ActiveRecord::Migration[6.0]
       t.string :photo
       t.references :post, foreign_key: true
 
+      t.timestamps
     end
   end
 end

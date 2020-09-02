@@ -5,7 +5,7 @@ FactoryBot.define do
     region { 'South Park' }
     state { Faker::TvShows::GameOfThrones.city }
     privacy { 'Public' }
-    fly_or_conventional { "Fly" }
+    fly_or_conventional { 'Fly' }
     association :user, factory: :user
   end
 end

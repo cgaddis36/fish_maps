@@ -19,7 +19,8 @@ RSpec.describe 'As a logged in user' do
 
     expect(page).to have_css('#post', count: 3)
   end
-  it "When I visit the homePage i see all of the posts in descending chronological order with newest posts coming first" do
+  it 'When I visit the homePage i see all of the posts in descending
+  chronological order with newest posts coming first' do
     visit '/'
 
     expect(page).to have_css('.card-columns', count: 4)
@@ -35,17 +36,17 @@ RSpec.describe 'As a logged in user' do
   it 'can filter posts based on region' do
     visit '/'
 
-    select "Front Range", from: 'Region'
+    select 'Front Range', from: 'Region'
 
-    click_on("Filter By Region")
+    click_on('Filter By Region')
 
     expect(page).to have_content(@post2.title)
     expect(page).to_not have_content(@post.title)
     expect(page).to_not have_content(@post1.title)
     expect(page).to_not have_content(@post3.title)
 
-    select "South Park", from: 'Region'
-    click_on("Filter By Region")
+    select 'South Park', from: 'Region'
+    click_on('Filter By Region')
 
     expect(page).to_not have_content(@post2.title)
     expect(page).to have_content(@post.title)

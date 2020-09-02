@@ -20,7 +20,7 @@ RSpec.describe 'As a logged in user' do
 
     post = Post.last
 
-    expect(post.title).to eq("14 inch Brookie")
+    expect(post.title).to eq('14 inch Brookie')
 
     expect(current_path).to eq("/post/#{post.id}")
 

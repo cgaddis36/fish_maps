@@ -1,9 +1,9 @@
 class Post < ApplicationRecord
-  validates_presence_of :state
+  validates :state, presence: true
 
-  belongs_to :user
+  belongs_to :user, dependent: :destroy
 
-  has_many :fish
+  has_many :fish, dependent: :destroy
 
   def self.order_posts
     order(id: :desc)

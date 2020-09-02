@@ -1,7 +1,8 @@
 class User < ApplicationRecord
-  validates_presence_of :email, :name
+  validates :email, presence: true
+  validates :name, presence: true
 
-  has_many :posts
+  has_many :posts, dependent: :destroy
   has_secure_password
 
   def new_posts
@@ -14,7 +15,7 @@ class User < ApplicationRecord
                         email: auth_info[:info][:email],
                         name: auth_info[:info][:name],
                         google_token: auth_info[:credentials][:token],
-                        password: "#{SecureRandom.hex(8)}" }
+                        password: SecureRandom.hex(8).to_s }
     user.save!
     user
   end
