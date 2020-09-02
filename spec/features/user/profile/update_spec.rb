@@ -2,13 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'As a registered User' do
   before(:each) do
-    @harry = User.create(
-                          name: Faker::Movies::HarryPotter.character,
-                          email: Faker::Movies::HarryPotter.house + '@example.com',
-                          password: Faker::Movies::HarryPotter.spell,
-                          city: Faker::Movies::HarryPotter.location,
-                          state: Faker::Movies::HarryPotter.location
-                        )
+    @harry = create(:user)
   end
   it "I can update my profile credentials" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@harry)

@@ -64,6 +64,6 @@ RSpec.describe 'As a visitor I can register' do
 
     expect(page).to have_content("Password confirmation doesn't match")
     expect(current_path).to eq('/registration')
-    expect(User.all).to be_empty
+    expect(User.count).to eq(1)
   end
 end
