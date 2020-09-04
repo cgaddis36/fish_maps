@@ -6,11 +6,11 @@ class PostController < ApplicationController
   def create
     post = current_user.posts.create(post_params)
     if post.save
-      flash[:success] = "Successfully created post"
+      flash[:success] = 'Successfully created post'
       redirect_to "/post/#{post.id}"
     else
       flash[:notice] = post.errors.full_messages.to_sentence
-      redirect_to "/post"
+      redirect_to '/post'
     end
   end
 

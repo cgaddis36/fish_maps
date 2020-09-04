@@ -2,9 +2,10 @@ require 'rails_helper'
 
 RSpec.describe 'As a logged in user' do
   before(:each) do
-    @user = User.create!(name: "Carl", city: 'Denver', state: "Colorado", email: 'lethargicgarfield@gmail.com', password: "password_mania")
+    @user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
   end
+
   it 'I can create a new post' do
     visit '/post'
 
@@ -19,7 +20,7 @@ RSpec.describe 'As a logged in user' do
 
     post = Post.last
 
-    expect(post.title).to eq("14 inch Brookie")
+    expect(post.title).to eq('14 inch Brookie')
 
     expect(current_path).to eq("/post/#{post.id}")
 

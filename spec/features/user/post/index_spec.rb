@@ -2,63 +2,15 @@ require 'rails_helper'
 
 RSpec.describe 'As a logged in user' do
   before(:each) do
-    @harry = User.create(
-                          name: Faker::Movies::HarryPotter.character,
-                          email: Faker::Movies::HarryPotter.house + '@example.com',
-                          password: Faker::Movies::HarryPotter.spell,
-                          city: Faker::Movies::HarryPotter.location,
-                          state: Faker::Movies::HarryPotter.location
-                        )
-    @post = @harry.posts.create(
-                        title: Faker::Movies::StarWars.vehicle,
-                        body_of_water: Faker::Movies::StarWars.specie,
-                        region: 'South Park',
-                        state: Faker::TvShows::GameOfThrones.city,
-                        privacy: 'Public',
-                        fly_or_conventional: "Fly"
-                        )
+    @harry = create(:user)
+    @hermoine = create(:user)
 
-    @hermoine = User.create(
-                          name: Faker::Movies::HarryPotter.character,
-                          email: Faker::Movies::HarryPotter.house + '@example.com',
-                          password: Faker::Movies::HarryPotter.spell,
-                          city: Faker::Movies::HarryPotter.location,
-                          state: Faker::Movies::HarryPotter.location
-                        )
+    @post = create(:post, user: @harry)
+    @post1 = create(:post, user: @harry)
+    @post2 = create(:post, region: 'Front Range', user: @harry)
+    @post3 = create(:post, user: @hermoine)
 
-    @post1 = @harry.posts.create(
-                        title: Faker::Movies::StarWars.vehicle,
-                        body_of_water: Faker::Movies::StarWars.specie,
-                        region: 'South Park',
-                        state: Faker::TvShows::GameOfThrones.city,
-                        privacy: 'Public',
-                        fly_or_conventional: "Fly"
-                        )
-    @fish = @post1.fish.create(
-              species: Faker::Movies::StarWars.specie,
-              length: 30,
-              weight: 12,
-              quantity: 2,
-              harvested: true,
-              photo: 'https://www.hakaimagazine.com/wp-content/uploads/header-fish-feel.jpg'
-              )
-    @post2 = @harry.posts.create(
-                        title: Faker::Movies::StarWars.vehicle,
-                        body_of_water: Faker::Movies::StarWars.specie,
-                        region: 'Front Range',
-                        state: Faker::TvShows::GameOfThrones.city,
-                        privacy: 'Public',
-                        fly_or_conventional: "Fly"
-                        )
-
-     @post3 = @hermoine.posts.create(
-                        title: Faker::Movies::StarWars.vehicle,
-                        body_of_water: Faker::Movies::StarWars.specie,
-                        region: 'South Park',
-                        state: Faker::TvShows::GameOfThrones.city,
-                        privacy: 'Public',
-                        fly_or_conventional: "Fly"
-                        )
+    @fish = create(:fish, post: @post1)
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@harry)
   end
@@ -67,7 +19,8 @@ RSpec.describe 'As a logged in user' do
 
     expect(page).to have_css('#post', count: 3)
   end
-  it "When I visit the homePage i see all of the posts in descending chronological order with newest posts coming first" do
+  it 'When I visit the homePage i see all of the posts in descending
+  chronological order with newest posts coming first' do
     visit '/'
 
     expect(page).to have_css('.card-columns', count: 4)
@@ -83,18 +36,17 @@ RSpec.describe 'As a logged in user' do
   it 'can filter posts based on region' do
     visit '/'
 
-    select "Front Range", from: 'Region'
+    select 'Front Range', from: 'Region'
 
-    click_on("Filter By Region")
+    click_on('Filter By Region')
 
     expect(page).to have_content(@post2.title)
     expect(page).to_not have_content(@post.title)
     expect(page).to_not have_content(@post1.title)
     expect(page).to_not have_content(@post3.title)
 
-    select "South Park", from: 'Region'
-    click_on("Filter By Region")
-
+    select 'South Park', from: 'Region'
+    click_on('Filter By Region')
 
     expect(page).to_not have_content(@post2.title)
     expect(page).to have_content(@post.title)

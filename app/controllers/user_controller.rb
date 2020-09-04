@@ -8,10 +8,10 @@ class UserController < ApplicationController
     if user.save
       session[:user_id] = user.id
       flash[:success] = "Welcome, #{user.name}!"
-      redirect_to "/profile"
+      redirect_to '/profile'
     else
       flash[:notice] = user.errors.full_messages.to_sentence
-      redirect_to "/registration"
+      redirect_to '/registration'
     end
   end
 
@@ -27,7 +27,7 @@ class UserController < ApplicationController
     @user = current_user
     @user.update(update_params)
     if @user.save
-      flash[:success] = "Profile Successfully Updated!"
+      flash[:success] = 'Profile Successfully Updated!'
       redirect_to '/profile'
     else
       flash[:error] = @user.errors.full_messages.to_sentence
